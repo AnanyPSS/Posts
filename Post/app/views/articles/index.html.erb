@@ -1,0 +1,31 @@
+<section class="section">
+  <div class="container">
+<div class="column is-8">
+  <h3 class="title is-2 has-text-grey-light">Latest Posts</h3></br>
+  <div class="articles">
+    <% @articles.each do |article| %>
+      <div class="columns bb-not-last pv10">
+        <div class="column is-8">
+          <%= link_to article do %>
+            <h3 class="title is-4 is-hoverable"><%= article.title %></h3>
+          <% end %></br>
+          <div class="content is-5">
+            <%= raw article.content.truncate(140)  %>
+            <p><em><small>Posted <%= time_ago_in_words(article.created_at) %> ago
+              </small>
+              </em>
+            </p>
+          </div>
+        </div>
+
+        <div class="column has-text-right">
+          <%= link_to 'Edit', edit_article_path(article), class:'button' %>
+          <%= link_to 'Move To Bin', article, method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
+        </div>
+
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
+</section>
