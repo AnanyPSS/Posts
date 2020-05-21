@@ -11,7 +11,7 @@
       <div class="level-left"></div>
       <div class="level-right">
         <div class="buttons">
-            <%= link_to 'Edit Article', edit_article_path(@article), class:'button'%>
+            <%= link_to 'Edit Post', edit_article_path(@article), class:'button'%>
             <%= link_to 'Move To Bin', article_path(@article), method: :delete, data: { confirm: "Move the post to bin?" }, class:'button' %>
         </div>
       </div>
